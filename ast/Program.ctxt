@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=Program
+comment0.text=\n\ Makes\ a\ program.\n\n\ @author\ Tarush\ Gupta\n\ @version\ 10/25/25\n
+comment1.params=procedures\ stmt
+comment1.target=Program(java.util.List,\ Statement)
+comment1.text=\n\ Makes\ a\ program.\n\ \n\ @param\ procedures\ the\ procedures\n\ @param\ stmt\ the\ statement\n
+comment2.params=env
+comment2.target=void\ exec(environment.Environment)
+comment2.text=\n\ Executes.\n\ @param\ env\ the\ environment\n
+numComments=3

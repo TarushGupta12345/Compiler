@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=ProcedureCall
+comment0.text=\n\ Calls\ a\ procedure.\n\n\ @author\ Tarush\ Gupta\n\ @version\ 10/25/25\n
+comment1.params=name\ arguments
+comment1.target=ProcedureCall(java.lang.String,\ java.util.List)
+comment1.text=\n\ Makes\ a\ procedure\ call.\n\ @param\ name\ the\ name\n\ @param\ arguments\ the\ arguments\n
+comment2.params=env
+comment2.target=int\ eval(environment.Environment)
+comment2.text=\n\ Evaluates.\n\ @param\ env\ the\ environment\n\ @return\ the\ val\n
+numComments=3

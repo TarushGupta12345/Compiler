@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=Readln
+comment0.text=\n\ Reads\ a\ value\ from\ the\ user.\n\ \n\ @author\ Tarush\ Gupta\n\ @version\ 10/25/25\n
+comment1.params=varName
+comment1.target=Readln(java.lang.String)
+comment1.text=\n\ Makes\ a\ Readln\ statement.\n\ @param\ varName\ the\ variable\ name\n
+comment2.params=env
+comment2.target=void\ exec(environment.Environment)
+comment2.text=\n\ Executes\ the\ Readln\ statement.\n\ @param\ env\ the\ environment\n
+numComments=3

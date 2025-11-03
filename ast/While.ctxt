@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=While
+comment0.text=\n\ Makes\ a\ while.\n\ \n\ @author\ Tarush\ Gupta\n\ @version\ 10/25/25\n
+comment1.params=condition\ body
+comment1.target=While(Condition,\ Statement)
+comment1.text=\n\ Makes\ a\ while.\n\ @param\ condition\ the\ condition\ to\ evaluate\n\ @param\ body\ the\ stuff\ to\ do\n
+comment2.params=env
+comment2.target=void\ exec(environment.Environment)
+comment2.text=\n\ Executes\ the\ while.\n\ @param\ env\ the\ environment\n
+numComments=3

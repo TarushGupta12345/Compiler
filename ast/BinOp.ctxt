@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=BinOp
+comment0.text=\n\ Does\ a\ binary\ operation.\n\n\ @author\ Tarush\ Gupta\n\ @version\ 10/25/25\n
+comment1.params=o\ one\ two
+comment1.target=BinOp(java.lang.String,\ Expression,\ Expression)
+comment1.text=\n\ Creates\ a\ new\ binary\ operation.\n\ @param\ o\ the\ operator\n\ @param\ one\ the\ first\ expression\n\ @param\ two\ the\ second\ expression\n
+comment2.params=env
+comment2.target=int\ eval(environment.Environment)
+comment2.text=\n\ Evaluates\ the\ binary\ operation.\n\ @param\ env\ the\ environment\n\ @return\ the\ result\n
+numComments=3

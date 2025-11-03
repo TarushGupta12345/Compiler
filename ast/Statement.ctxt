@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=Statement
+comment0.text=\n\ Executes\ a\ statement.\n\n\ @author\ Tarush\ Gupta\n\ @version\ 10/25/25\n
+comment1.params=env
+comment1.target=void\ exec(environment.Environment)
+comment1.text=\n\ Executes\ the\ statement.\n\ @param\ env\ the\ environment\n
+numComments=2

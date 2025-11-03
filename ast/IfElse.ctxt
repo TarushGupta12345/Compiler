@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=IfElse
+comment0.text=\n\ Makes\ an\ f\ else.\n\ \n\ @author\ Tarush\ Gupta\n\ @version\ 10/25/25\n
+comment1.params=condition\ thenStmt\ elseStmt
+comment1.target=IfElse(Condition,\ Statement,\ Statement)
+comment1.text=\n\ Makes\ an\ if\ else.\n\ @param\ condition\ the\ condition\n\ @param\ thenStmt\ the\ then\ statement\n\ @param\ elseStmt\ the\ else\ statement\n
+comment2.params=env
+comment2.target=void\ exec(environment.Environment)
+comment2.text=\n\ Executes\ the\ if\ else.\n\ @param\ env\ the\ environment\n
+numComments=3

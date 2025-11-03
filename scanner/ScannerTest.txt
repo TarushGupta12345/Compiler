@@ -1,0 +1,15 @@
+x = x + 3 / 5 - y
+y = z % 5                       
+    z =    x   + y
+//test if this is tokenized
+xyzzy          =           303    
+  $^)(@ 
+<>
+<=
+>=
+:=
+byte
+  baudy
+    bit
+       and
+           branch            
