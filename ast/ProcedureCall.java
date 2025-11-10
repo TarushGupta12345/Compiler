@@ -1,6 +1,7 @@
 package ast;
 
 import environment.*;
+import emitter.*;
 import java.util.List;
 /**
  * Calls a procedure.
@@ -38,7 +39,7 @@ public class ProcedureCall extends Expression
             throw new RuntimeException("Procedure " + name + " expects " + 
                              parameters.size() + " arguments but got " + arguments.size());
         }
-        Environment procedureEnv = new Environment(env);
+        Environment procedureEnv = new Environment(env.getGlobal());
         procedureEnv.declareVariable(name, 0);
         for (int i = 0; i < arguments.size(); i++) 
         {
@@ -49,5 +50,14 @@ public class ProcedureCall extends Expression
         Statement stmt = procedure.getStatement();
         stmt.exec(procedureEnv);
         return procedureEnv.getVariable(name);
+    }
+    
+    /**
+     * Compiles.
+     * @param e the emitter
+     */
+    public void compile(Emitter e)
+    {
+        throw new RuntimeException("Procedure call compilation not yet implemented");
     }
 }

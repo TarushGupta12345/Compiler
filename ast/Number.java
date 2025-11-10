@@ -1,6 +1,7 @@
 package ast;
 
 import environment.*;
+import emitter.*;
 /**
  * Makes a number.
  *
@@ -28,5 +29,14 @@ public class Number extends Expression
     public int eval(Environment e)
     {
         return value;
+    }
+    
+    /**
+     * Compiles.
+     * @param e the emitter
+     */
+    public void compile(Emitter e)
+    {
+        e.emit("li $v0, " + value + "\t#load immediate " + value);
     }
 }

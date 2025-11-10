@@ -1,5 +1,6 @@
 package ast;
 import environment.*;
+import emitter.*;
 import java.util.List;
 import java.util.ArrayList;
 /**
@@ -52,5 +53,15 @@ public class ProcedureDeclaration extends Statement
     public Statement getStatement()
     {
         return stmt;
+    }
+    
+    /**
+     * Compiles the procedure declaration.
+     * @param e the emitter
+     */
+    public void compile(Emitter e)
+    {
+        // Procedure declarations are stored in environment, not compiled directly
+        // Compilation of procedure calls and bodies will be handled later
     }
 }

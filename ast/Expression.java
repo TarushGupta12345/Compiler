@@ -3,6 +3,7 @@ package ast;
 import scanner.*;
 import parser.*;
 import environment.*;
+import emitter.*;
 /**
  * Evaluates an expression.
  *
@@ -17,4 +18,10 @@ public abstract class Expression
      * @return the result
      */
     public abstract int eval(Environment env);
+    
+    /**
+     * Compiles.
+     * @param e the emitter
+     */
+    public abstract void compile(Emitter e);
 }

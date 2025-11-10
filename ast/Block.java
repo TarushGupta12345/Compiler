@@ -2,6 +2,7 @@ package ast;
 
 import java.util.List;
 import environment.*;
+import emitter.*;
 /**
  * Executes a list of statements.
  *
@@ -30,6 +31,18 @@ public class Block extends Statement
         for (Statement s : stmts)
         {
             s.exec(env);
+        }
+    }
+    
+    /**
+     * Compiles.
+     * @param e the emitter
+     */
+    public void compile(Emitter e)
+    {
+        for (Statement s : stmts)
+        {
+            s.compile(e);
         }
     }
 }

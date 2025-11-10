@@ -61,8 +61,9 @@ public class Environment
     }
     
     /**
-     * Sets a variable. If the variable already exists (in current or parents), 
-     * set it there. If not, creates a new one and sets it here.
+     * Sets a variable. If the variable already exists in current environment, 
+     * set it there. Otherwise, check if it exists in global environment. 
+     * If found in global, set it there. Otherwise, declare new variable in current environment.
      * @param variable the variable
      * @param value the value
      */
@@ -73,15 +74,11 @@ public class Environment
             vars.put(variable, value);
             return;
         }
-        Environment current = parent;
-        while (current != null)
+        Environment global = getGlobal();
+        if (global != this && global.vars.containsKey(variable))
         {
-            if (current.vars.containsKey(variable))
-            {
-                current.vars.put(variable, value);
-                return;
-            }
-            current = current.parent;
+            global.vars.put(variable, value);
+            return;
         }
         vars.put(variable, value);
     }

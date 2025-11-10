@@ -1,24 +1,28 @@
 //Environment hierarchy test file for flat hierarchy
 // global (parent) local (procedure)
-//@author Rohan Ramkumar
-//@version 11/03/2023
+// NOTE FOR MS. DATAR: THIS HAS BEEN MODIFIED BY ME TO WORK WITH THE NEW VARIABLE SYNTAX
+//@author Tarush Gupta 
+//@version 11/09/2025
+
+VAR x, y, ignore;
 PROCEDURE foo();
 BEGIN
-x := 2;
-y := 7;
-ignore := bar();
-WRITELN(y);
+    x := 2;
+    y := 7;
+    ignore := bar();
+    WRITELN(y);
 END;
 PROCEDURE bar();
 BEGIN
-x := 3;
-y := y + 2;
+    x := 3;
+    y := y + 2;
 END;
 BEGIN
-x := 1;
-ignore := foo();
-WRITELN(x);
-WRITELN(y);
+    x := 1;
+    ignore := foo();
+    WRITELN(x);
+    WRITELN(y);
 END;
-.
+
 //should output 7 then 3 then 0
+

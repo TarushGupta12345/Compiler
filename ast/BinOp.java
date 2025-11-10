@@ -1,6 +1,7 @@
 package ast;
 
 import environment.*;
+import emitter.*;
 /**
  * Does a binary operation.
  *
@@ -53,5 +54,34 @@ public class BinOp extends Expression
             return val1 / val2;
         }
         throw new RuntimeException("Unexpected operator");
+    }
+    
+    /**
+     * Compiles.
+     * @param e the emitter
+     */
+    public void compile(Emitter e)
+    {
+        exp1.compile(e);
+        e.emitPush("$v0");
+        exp2.compile(e);
+        e.emitPop("$t0");
+        if (op.equals("+"))
+        {
+            e.emit("addu $v0, $t0, $v0\t#add");
+        }
+        if (op.equals("-"))
+        {
+            e.emit("subu $v0, $t0, $v0\t#subtract");
+        }
+        if (op.equals("*"))
+        {
+            e.emit("mul $v0, $v0, $t0\t#multiply");
+        }
+        if (op.equals("/"))
+        {
+            e.emit("div $t0, $v0\t#divide");
+            e.emit("mflo $v0\t#get quotient from low level register");
+        }
     }
 }

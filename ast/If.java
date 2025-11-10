@@ -1,6 +1,7 @@
 package ast;
 
 import environment.*;
+import emitter.*;
 
 /**
  * If statement.
@@ -34,5 +35,18 @@ public class If extends Statement
         {
             thenStmt.exec(env);
         }
+    }
+    
+    /**
+     * Compiles.
+     * @param e the emitter
+     */
+    public void compile(Emitter e)
+    {
+        int labelID = e.nextLabelID();
+        String endLabel = "endif" + labelID;
+        condition.compile(e, endLabel);
+        thenStmt.compile(e);
+        e.emit(endLabel + ":\t#end of if");
     }
 }

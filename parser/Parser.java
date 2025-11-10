@@ -10,7 +10,7 @@ import java.util.ArrayList;
  * Parses Scanner output using a recursive descent leftmost parse tree.
  *
  * @author Tarush Gupta
- * @version 10/25/25
+ * @version 11/9/25
  */
 public class Parser
 {
@@ -62,7 +62,7 @@ public class Parser
         {
             eat("-");
             Expression rhs = parseFactor();
-            return new BinOp("-", new ast.Number(0), rhs);
+            return new BinOp("*", new ast.Number(-1), rhs);
         }
         else if (currToken.equals("("))
         {
@@ -305,11 +305,65 @@ public class Parser
     }
 
     /**
+     * Parses variable declarations.
+     * @return the variable declaration
+     */
+    private VarDeclaration parseVarDeclarations() throws ScanErrorException
+    {
+        VarDeclaration varDecl = new VarDeclaration();
+        
+        while (currToken.equals("VAR"))
+        {
+            eat("VAR");
+            
+            String varName = currToken;
+            eat(currToken);
+            
+            if (currToken.equals(":="))
+            {
+                eat(":=");
+                int value = Integer.parseInt(currToken);
+                eat(currToken);
+                varDecl.addVariable(varName, value);
+            }
+            else
+            {
+                varDecl.addVariable(varName);
+            }
+            
+            while (currToken.equals(","))
+            {
+                eat(",");
+                varName = currToken;
+                eat(currToken);
+                
+                if (currToken.equals(":="))
+                {
+                    eat(":=");
+                    int value = Integer.parseInt(currToken);
+                    eat(currToken);
+                    varDecl.addVariable(varName, value);
+                }
+                else
+                {
+                    varDecl.addVariable(varName);
+                }
+            }
+            
+            eat(";");
+        }
+        
+        return varDecl;
+    }
+    
+    /**
      * Parses a program.
      * @return the program
      */
     public Program parseProgram() throws ScanErrorException
     {
+        VarDeclaration varDecl = parseVarDeclarations();
+        
         List<ProcedureDeclaration> procedures = new ArrayList<ProcedureDeclaration>();
         
         while (currToken.equals("PROCEDURE"))
@@ -336,6 +390,6 @@ public class Parser
             }
         }
         
-        return new Program(procedures, new Block(stmts));
+        return new Program(varDecl, procedures, new Block(stmts));
     }
 }

@@ -1,6 +1,7 @@
 package ast;
 
 import environment.*;
+import emitter.*;
 
 /**
  * Creates a FOR statement.
@@ -44,5 +45,14 @@ public class For extends Statement
             env.setVariable(varName, i);
             body.exec(env);
         }
+    }
+    
+    /**
+     * Compiles.
+     * @param e the emitter
+     */
+    public void compile(Emitter e)
+    {
+        //nothing for now lol
     }
 }

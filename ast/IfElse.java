@@ -1,6 +1,7 @@
 package ast;
 
 import environment.*;
+import emitter.*;
 
 /**
  * Makes an f else.
@@ -41,5 +42,22 @@ public class IfElse extends Statement
         {
             elseStmt.exec(env);
         }
+    }
+    
+    /**
+     * Compiles.
+     * @param e the emitter
+     */
+    public void compile(Emitter e)
+    {
+        int labelID = e.nextLabelID();
+        String elseLabel = "else" + labelID;
+        String endLabel = "endif" + labelID;
+        condition.compile(e, elseLabel);
+        thenStmt.compile(e);
+        e.emit("j " + endLabel + "\t#jump to end");
+        e.emit(elseLabel + ":\t#else branch");
+        elseStmt.compile(e);
+        e.emit(endLabel + ":\t#end of if-else");
     }
 }

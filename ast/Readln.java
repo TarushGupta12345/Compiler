@@ -2,7 +2,7 @@ package ast;
 
 import environment.*;
 import java.util.Scanner;
-
+import emitter.*;
 /**
  * Reads a value from the user.
  * 
@@ -32,5 +32,17 @@ public class Readln extends Statement
         Scanner inputScanner = new Scanner(System.in);
         int value = inputScanner.nextInt();
         env.setVariable(varName, value);
+    }
+    
+    /**
+     * Compiles.
+     * @param e the emitter
+     */
+    public void compile(Emitter e)
+    {
+        e.emit("li $v0, 5\t#read integer");
+        e.emit("syscall");
+        e.emit("la $t0 var" + varName + "\t#load address of " + varName);
+        e.emit("sw $v0 ($t0)\t#store input in " + varName);
     }
 }

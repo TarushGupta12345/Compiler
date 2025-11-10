@@ -1,7 +1,7 @@
 package ast;
 
 import environment.*;
-
+import emitter.*;
 /**
  * Makes a variable.
  *
@@ -29,5 +29,15 @@ public class Variable extends Expression
     public int eval(Environment env)
     {
         return env.getVariable(name);
+    }
+    
+    /**
+     * Compiles.
+     * @param e the emitter
+     */
+    public void compile(Emitter e)
+    {
+        e.emit("la $t0 var" + name + "\t#load address of " + name);
+        e.emit("lw $v0 ($t0)\t#load value of " + name);
     }
 }

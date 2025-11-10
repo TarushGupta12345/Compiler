@@ -1,6 +1,7 @@
 package ast;
 
 import environment.*;
+import emitter.*;
 /**
  * Assigns a value to a variable.
  *
@@ -30,5 +31,16 @@ public class Assignment extends Statement
     public void exec(Environment env)
     {
         env.setVariable(var, exp.eval(env));
+    }
+    
+    /**
+     * Compiles the assignment.
+     * @param e the emitter 
+     */
+    public void compile(Emitter e)
+    {
+        exp.compile(e);
+        e.emit("la $t0 var" + var + "\t#load address of " + var);
+        e.emit("sw $v0 ($t0)\t#store value in " + var);
     }
 }

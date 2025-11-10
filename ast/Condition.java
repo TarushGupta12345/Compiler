@@ -1,6 +1,7 @@
 package ast;
 
 import environment.*;
+import emitter.*;
 
 /**
  * Creates a condition.
@@ -85,5 +86,47 @@ public class Condition
         }
          */
         
+    }
+    
+    /**
+     * Compiles. 
+     * @param e the emitter
+     * @param targetLabel branch here if false
+     */
+    public void compile(Emitter e, String targetLabel)
+    {
+        left.compile(e);
+        e.emitPush("$v0");
+        right.compile(e);
+        e.emitPop("$t0");
+        
+        if (relop.equals("="))
+        {
+            e.emit("bne $t0 $v0 " + targetLabel + "\t#branch if not equal");
+        }
+        else if (relop.equals("<>"))
+        {
+            e.emit("beq $t0 $v0 " + targetLabel + "\t#branch if equal");
+        }
+        else if (relop.equals("<"))
+        {
+            e.emit("bge $t0 $v0 " + targetLabel + "\t#branch if >=");
+        }
+        else if (relop.equals(">"))
+        {
+            e.emit("ble $t0 $v0 " + targetLabel + "\t#branch if <=");
+        }
+        else if (relop.equals("<="))
+        {
+            e.emit("bgt $t0 $v0 " + targetLabel + "\t#branch if >");
+        }
+        else if (relop.equals(">="))
+        {
+            e.emit("blt $t0 $v0 " + targetLabel + "\t#branch if <");
+        }
+        else
+        {
+            throw new RuntimeException("Unknown relop: " + relop);
+        }
     }
 }

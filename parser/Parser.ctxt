@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Parser
-comment0.text=\n\ Parses\ Scanner\ output\ using\ a\ recursive\ descent\ leftmost\ parse\ tree.\n\n\ @author\ Tarush\ Gupta\n\ @version\ 10/25/25\n
+comment0.text=\n\ Parses\ Scanner\ output\ using\ a\ recursive\ descent\ leftmost\ parse\ tree.\n\n\ @author\ Tarush\ Gupta\n\ @version\ 11/9/25\n
 comment1.params=s
 comment1.target=Parser(scanner.Scanner)
 comment1.text=\n\ Constructs\ a\ parser\ object.\n\ @param\ s\ the\ scanner\n
@@ -10,8 +10,11 @@ comment11.params=
 comment11.target=java.util.List\ parseArguments()
 comment11.text=\n\ Parses\ the\ arguments.\n\ @return\ the\ arguments\n
 comment12.params=
-comment12.target=ast.Program\ parseProgram()
-comment12.text=\n\ Parses\ a\ program.\n\ @return\ the\ program\n
+comment12.target=ast.VarDeclaration\ parseVarDeclarations()
+comment12.text=\n\ Parses\ variable\ declarations.\n\ @return\ the\ variable\ declaration\n
+comment13.params=
+comment13.target=ast.Program\ parseProgram()
+comment13.text=\n\ Parses\ a\ program.\n\ @return\ the\ program\n
 comment2.params=expected
 comment2.target=void\ eat(java.lang.String)
 comment2.text=\n\ Eats\ a\ token.\n\ @param\ expected\ the\ expected\ token\ to\ be\ eaten\n
@@ -36,4 +39,4 @@ comment8.text=\n\ Parses\ multiple\ statements.\n\ @return\ the\ block.\n
 comment9.params=
 comment9.target=ast.Statement\ parseStatement()
 comment9.text=\n\ Parses\ a\ single\ statement.\n\ @return\ the\ statement.\n
-numComments=13
+numComments=14

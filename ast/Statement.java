@@ -3,6 +3,7 @@ package ast;
 import scanner.*;
 import parser.*;
 import environment.*;
+import emitter.*;
 /**
  * Executes a statement.
  *
@@ -16,4 +17,10 @@ public abstract class Statement
      * @param env the environment
      */
     public abstract void exec(Environment env);
+    
+    /**
+     * Compiles.
+     * @param e the emitter
+     */
+    public abstract void compile(Emitter e);
 }

@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.target=VarDeclaration
+comment0.text=\n\ Makes\ a\ variable\ declaration.\n\ \n\ @author\ Tarush\ Gupta\n\ @version\ 11/9/25\n
+comment1.params=
+comment1.target=VarDeclaration()
+comment1.text=\n\ Creates\ a\ new\ variable\ declaration.\n
+comment2.params=name
+comment2.target=void\ addVariable(java.lang.String)
+comment2.text=\n\ Adds\ a\ variable.\n\ @param\ name\ the\ name\n
+comment3.params=name\ value
+comment3.target=void\ addVariable(java.lang.String,\ int)
+comment3.text=\n\ Adds\ a\ variable\ with\ a\ value.\n\ @param\ name\ the\ name\n\ @param\ value\ the\ value\n
+comment4.params=
+comment4.target=java.util.Map\ getVariables()
+comment4.text=\n\ Gets\ varibales.\n\ @return\ map\ of\ names\ to\ values\n
+numComments=5
